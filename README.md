@@ -31,9 +31,9 @@ A lot of people try to look for a house and cannot find many options online. As 
 ### Design
 
 * [User Stories](DesignDocuments/UserStories/userStories.md)
-* [Tasks (To be completed)](DesignDocuments/TasksByStory/tasks.md)
-* [Screen Design (To be completed)](DesignDocuments/ScreenDesign/Screens.md)
-* [Application Flow (To be completed)](DesignDocuments/applicationFlow.md)
+* [Tasks](DesignDocuments/TasksByStory/tasks.md)
+* [Screen Design](DesignDocuments/ScreenDesign/Wireframe.pdf)
+* [Application Flow](DesignDocuments/ApplicationFlow/applicationFlow.md)
 * [Database Design (To be completed)](DesignDocuments/databaseDiagram.png)
 
 ### [Project Plan](ProjectPlan.md)
