@@ -27,6 +27,9 @@ public class Property {
     @Column(name = "description")
     private String description;
 
+    @ManyToOne
+    private User user;
+
     /**
      * Instantiates a new Property.
      */
@@ -39,11 +42,31 @@ public class Property {
      * @param address     the address
      * @param price       the price
      * @param description the description
+     * @param user        the user
      */
-    public Property(String address, int price, String description) {
+    public Property(String address, int price, String description, User user) {
         this.address = address;
         this.price = price;
         this.description = description;
+        this.user = user;
+    }
+
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**
@@ -100,6 +123,24 @@ public class Property {
         this.description = description;
     }
 
+    /**
+     * Gets user.
+     *
+     * @return the user
+     */
+    public User getUser() {
+        return user;
+    }
+
+    /**
+     * Sets user.
+     *
+     * @param user the user
+     */
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Property{" +
@@ -107,6 +148,8 @@ public class Property {
                 ", address='" + address + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
+                ", user=" + user +
                 '}';
     }
+
 }

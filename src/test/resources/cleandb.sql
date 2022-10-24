@@ -1,0 +1,4 @@
+delete from user;
+delete from property;
+INSERT INTO user VALUES (1,'Joe','Coyne','jcoyne','supersecret1'),(2,'Fred','Hensen','fhensen','supersecret2'),(3,'Barney','Curry','bcurry','supersecret3'),(4,'Karen','Mack','kmack','supersecret4'),(5,'Dianne','Klein','dklein','supersecret5'),(6,'Dawn','Tillman','dtillman','supersecret6');
+INSERT INTO `property` VALUES (1,'Address 1', 5000, 'Description 1', 1),(2,'Address 2', 4000, 'Description 2', 2),(3,'Address 3', 3000, 'Description 3', 2),(4,'Address 4', 2000, 'Description 4', 1),(5,'Address 5', 6000, 'Description 5', 4),(6,'Address 6', 7000, 'Description 6', 1),(7,'Address 7', 10000, 'Description 7', 4);
