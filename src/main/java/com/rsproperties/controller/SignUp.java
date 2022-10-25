@@ -12,12 +12,12 @@ import java.io.IOException;
  * Created by Eduardo Burzlaff
  */
 
-@WebServlet(name = "Index", urlPatterns = { "/home" } )
-public class Index extends HttpServlet {
+@WebServlet(name = "SignUp", urlPatterns = { "/signUp" } )
+public class SignUp extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index" +
+        RequestDispatcher dispatcher = request.getRequestDispatcher("signUp" +
                 ".jsp");
         dispatcher.forward(request, response);
     }
