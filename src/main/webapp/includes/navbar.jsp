@@ -20,7 +20,7 @@
                     <a class="nav-link" href="#">Properties</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="about">About Us</a>
+                    <a class="nav-link" href="aboutUs">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
