@@ -1,4 +1,4 @@
-package com.rsproperties.entity;
+package com.rsproperties.persistence;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
