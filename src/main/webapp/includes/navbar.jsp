@@ -17,13 +17,22 @@
                     <a class="nav-link active" aria-current="page" href="home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Properties</a>
+                    <a class="nav-link" href="viewForSaleProperties">Buy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="viewForRentProperties">Rent</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="viewProperties">All Properties</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="aboutUs">About Us</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="viewMyProperties">My Properties</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="logIn">Log In</a>

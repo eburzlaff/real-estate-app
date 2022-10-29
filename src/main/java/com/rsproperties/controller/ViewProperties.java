@@ -16,11 +16,12 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by Eduardo Burzlaff
+ * Created by eburzlaff.
  */
 
-@WebServlet(name = "Index", urlPatterns = { "/home" } )
-public class Index extends HttpServlet {
+@WebServlet(name = "ViewProperties", urlPatterns = { "/viewProperties" } )
+
+public class ViewProperties extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
@@ -31,7 +32,7 @@ public class Index extends HttpServlet {
         req.setAttribute("properties", properties);
         logger.debug("Sending back ALL property/ies..." + properties);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index" +
+        RequestDispatcher dispatcher = req.getRequestDispatcher("properties" +
                 ".jsp");
         dispatcher.forward(req, resp);
     }

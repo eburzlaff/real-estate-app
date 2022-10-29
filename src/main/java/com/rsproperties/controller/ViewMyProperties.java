@@ -16,22 +16,23 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Created by Eduardo Burzlaff
+ * Created by eburzlaff.
  */
 
-@WebServlet(name = "Index", urlPatterns = { "/home" } )
-public class Index extends HttpServlet {
+@WebServlet(name = "ViewMyProperties", urlPatterns = { "/viewMyProperties" } )
+
+public class ViewMyProperties extends HttpServlet {
     private final Logger logger = LogManager.getLogger(this.getClass());
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         GenericDao<Property> dao = DaoFactory.createDao(Property.class);
-        List<Property> properties = dao.getAll();
-        req.setAttribute("properties", properties);
-        logger.debug("Sending back ALL property/ies..." + properties);
+        List<Property> myProperties = dao.getAll();
+        req.setAttribute("myProperties", myProperties);
+        logger.debug("Sending back MY property/ies..." + myProperties);
 
-        RequestDispatcher dispatcher = req.getRequestDispatcher("index" +
+        RequestDispatcher dispatcher = req.getRequestDispatcher("myProperties" +
                 ".jsp");
         dispatcher.forward(req, resp);
     }
