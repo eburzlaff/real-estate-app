@@ -24,8 +24,11 @@
             <p class="card-text">${property.description}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">${property.price}</li>
-            <li class="list-group-item">Number of Bedrooms</li>
+            <li class="list-group-item">Type: ${property.propertyType}</li>
+            <li class="list-group-item">For ${property.availabilityType}</li>
+            <li class="list-group-item">Bedrooms: ${property.bedroomNumber}</li>
+            <li class="list-group-item">Bathrooms: ${property.bathroomNumber}</li>
+            <li class="list-group-item">Price: $${property.price}.00</li>
         </ul>
     </div>
 </c:forEach>

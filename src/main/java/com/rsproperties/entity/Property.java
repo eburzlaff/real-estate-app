@@ -27,6 +27,18 @@ public class Property {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "property_type")
+    private String propertyType;
+
+    @Column(name = "availability_type")
+    private String availabilityType;
+
+    @Column(name = "bedroom_number")
+    private int bedroomNumber;
+
+    @Column(name = "bathroom_number")
+    private int bathroomNumber;
+
     @ManyToOne
     private User user;
 
@@ -124,6 +136,78 @@ public class Property {
     }
 
     /**
+     * Gets property type.
+     *
+     * @return the property type
+     */
+    public String getPropertyType() {
+        return propertyType;
+    }
+
+    /**
+     * Sets property type.
+     *
+     * @param propertyType the property type
+     */
+    public void setPropertyType(String propertyType) {
+        this.propertyType = propertyType;
+    }
+
+    /**
+     * Gets availability type.
+     *
+     * @return the availability type
+     */
+    public String getAvailabilityType() {
+        return availabilityType;
+    }
+
+    /**
+     * Sets availability type.
+     *
+     * @param availabilityType the availability type
+     */
+    public void setAvailabilityType(String availabilityType) {
+        this.availabilityType = availabilityType;
+    }
+
+    /**
+     * Gets bedroom number.
+     *
+     * @return the bedroom number
+     */
+    public int getBedroomNumber() {
+        return bedroomNumber;
+    }
+
+    /**
+     * Sets bedroom number.
+     *
+     * @param bedroomNumber the bedroom number
+     */
+    public void setBedroomNumber(int bedroomNumber) {
+        this.bedroomNumber = bedroomNumber;
+    }
+
+    /**
+     * Gets bathroom number.
+     *
+     * @return the bathroom number
+     */
+    public int getBathroomNumber() {
+        return bathroomNumber;
+    }
+
+    /**
+     * Sets bathroom number.
+     *
+     * @param bathroomNumber the bathroom number
+     */
+    public void setBathroomNumber(int bathroomNumber) {
+        this.bathroomNumber = bathroomNumber;
+    }
+
+    /**
      * Gets user.
      *
      * @return the user
@@ -148,8 +232,11 @@ public class Property {
                 ", address='" + address + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
+                ", propertyType='" + propertyType + '\'' +
+                ", availabilityType='" + availabilityType + '\'' +
+                ", bedroomNumber=" + bedroomNumber +
+                ", bathroomNumber='" + bathroomNumber + '\'' +
                 ", user=" + user +
                 '}';
     }
-
 }
