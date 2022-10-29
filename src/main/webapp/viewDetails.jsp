@@ -9,14 +9,14 @@
 <jsp:include page="includes/contentType.jsp" />
 <html>
 <head>
-    <title>RS Properties - All Properties</title>
+    <title>RS Properties - Individual Property</title>
     <jsp:include page="includes/head.jsp" />
 </head>
 
 <body>
 <jsp:include page="includes/navbar.jsp" />
-<h2>All Properties</h2>
-<c:forEach items="${properties}" var="property">
+<h2>For Rent Properties</h2>
+<c:forEach items="${forSaleProperties}" var="property">
     <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -35,6 +35,7 @@
         </div>
     </div>
 </c:forEach>
+
 
 <jsp:include page="includes/footer.jsp" />
 </body>

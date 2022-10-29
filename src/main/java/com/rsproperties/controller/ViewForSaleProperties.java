@@ -28,7 +28,7 @@ public class ViewForSaleProperties extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
         GenericDao<Property> dao = DaoFactory.createDao(Property.class);
-        List<Property> forSaleProperties = dao.getAll();
+        List<Property> forSaleProperties = dao.findByPropertyEqual("availabilityType", "Sale");
         req.setAttribute("forSaleProperties", forSaleProperties);
         logger.debug("Sending back FOR SALE property/ies..." + forSaleProperties);
 

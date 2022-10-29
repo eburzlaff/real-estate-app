@@ -27,8 +27,9 @@ public class ViewForRentProperties extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
+        Property property = new Property();
         GenericDao<Property> dao = DaoFactory.createDao(Property.class);
-        List<Property> forRentProperties = dao.getAll();
+        List<Property> forRentProperties = dao.findByPropertyEqual("availabilityType", "Rent");
         req.setAttribute("forRentProperties", forRentProperties);
         logger.debug("Sending back FOR RENT property/ies..." + forRentProperties);
 
