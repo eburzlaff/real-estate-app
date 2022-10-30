@@ -34,7 +34,7 @@ A lot of people try to look for a house and cannot find many options online. As 
 * [Tasks](DesignDocuments/TasksByStory/tasks.md)
 * [Screen Design](DesignDocuments/ScreenDesign/Wireframe.pdf)
 * [Application Flow](DesignDocuments/ApplicationFlow/applicationFlow.md)
-* [Database Design (To be completed)](DesignDocuments/databaseDiagram.png)
+* [Database Design](DesignDocuments/DatabaseDiagram/databaseDiagram.png)
 
 ### [Project Plan](ProjectPlan.md)
 
@@ -42,4 +42,9 @@ A lot of people try to look for a house and cannot find many options online. As 
 
 #### [Weekly Reflection Journal](WeeklyReflectionJournal.md)
 #### [Time Log](TimeLog.md)
+
+
+### Self Evaluations
+
+* [Mid-Term Self Evaluation](DesignDocuments/SelfEvaluations/midTermSelfEvaluation.md)
 

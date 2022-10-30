@@ -3,6 +3,7 @@ package com.rsproperties.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 /**
  * Represents a property in the real state application
@@ -26,6 +27,8 @@ public class Property {
 
     @Column(name = "description")
     private String description;
+
+//    private int userId;
 
     @Column(name = "property_type")
     private String propertyType;
@@ -51,16 +54,24 @@ public class Property {
     /**
      * Instantiates a new Property.
      *
-     * @param address     the address
-     * @param price       the price
-     * @param description the description
-     * @param user        the user
+     * @param address          the address
+     * @param price            the price
+     * @param description      the description
+     * @param user             the user
+     * @param propertyType     the property type
+     * @param availabilityType the availability type
+     * @param bedroomNumber    the bedroom number
+     * @param bathroomNumber   the bathroom number
      */
-    public Property(String address, int price, String description, User user) {
+    public Property(String address, int price, String description, User user, String propertyType, String availabilityType, int bedroomNumber, int bathroomNumber) {
         this.address = address;
         this.price = price;
         this.description = description;
         this.user = user;
+        this.propertyType = propertyType;
+        this.availabilityType = availabilityType;
+        this.bedroomNumber = bedroomNumber;
+        this.bathroomNumber = bathroomNumber;
     }
 
     /**
@@ -134,6 +145,24 @@ public class Property {
     public void setDescription(String description) {
         this.description = description;
     }
+
+//    /**
+//     * Gets user id.
+//     *
+//     * @return the user id
+//     */
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    /**
+//     * Sets user id.
+//     *
+//     * @param userId the user id
+//     */
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
     /**
      * Gets property type.
@@ -236,7 +265,20 @@ public class Property {
                 ", availabilityType='" + availabilityType + '\'' +
                 ", bedroomNumber=" + bedroomNumber +
                 ", bathroomNumber='" + bathroomNumber + '\'' +
-                ", user=" + user +
+//                ", userId=" + userId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Property property = (Property) o;
+        return id == property.id && price == property.price && bedroomNumber == property.bedroomNumber && bathroomNumber == property.bathroomNumber && Objects.equals(address, property.address) && Objects.equals(description, property.description) && Objects.equals(propertyType, property.propertyType) && Objects.equals(availabilityType, property.availabilityType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, address, price, description, propertyType, availabilityType, bedroomNumber, bathroomNumber);
     }
 }
