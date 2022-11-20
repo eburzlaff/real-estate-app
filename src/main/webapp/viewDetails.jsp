@@ -15,8 +15,7 @@
 
 <body>
 <jsp:include page="includes/navbar.jsp" />
-<h2>For Rent Properties</h2>
-<c:forEach items="${forSaleProperties}" var="property">
+<h2>View Details - Property</h2>
     <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
@@ -34,7 +33,6 @@
             <a href="viewDetails" class="card-link">View Details</a>
         </div>
     </div>
-</c:forEach>
 
 
 <jsp:include page="includes/footer.jsp" />

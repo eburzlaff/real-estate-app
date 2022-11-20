@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 
 @WebServlet(name = "LogIn", urlPatterns = { "/logIn" } )
-public class LogIn extends HttpServlet {
+public class LogInView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
