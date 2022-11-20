@@ -29,9 +29,6 @@
             <li class="list-group-item">Bathrooms: ${property.bathroomNumber}</li>
             <li class="list-group-item">Price: $${property.price}.00</li>
         </ul>
-        <div class="card-body">
-            <a href="viewDetails" class="card-link">View Details</a>
-        </div>
     </div>
 
 

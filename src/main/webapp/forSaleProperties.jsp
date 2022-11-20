@@ -31,7 +31,7 @@
             <li class="list-group-item">Price: $${property.price}.00</li>
         </ul>
         <div class="card-body">
-            <a href="viewDetails" class="card-link">View Details</a>
+            <a href="viewDetails?id=${property.id}" class="card-link">View Details</a>
         </div>
     </div>
 </c:forEach>
