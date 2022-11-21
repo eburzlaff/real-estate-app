@@ -38,7 +38,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-center">
-                                        <a href="logInAction"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Log In</button></a>
+                                        <a href="logInAction"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">Log In</button></a>
                                     </div>
                                 </form>
 

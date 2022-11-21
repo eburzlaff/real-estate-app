@@ -50,7 +50,7 @@
                                     </div>
 
                                     <div class="d-flex justify-content-center">
-                                        <a href="signUpAction"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button></a>
+                                        <a href="signUpAction"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">Register</button></a>
                                     </div>
 
                                     <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="logIn"

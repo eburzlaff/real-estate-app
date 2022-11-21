@@ -15,8 +15,9 @@
 
 <body>
 <jsp:include page="includes/navbar.jsp" />
-<h2>View Details - Property</h2>
-    <div class="card" style="width: 18rem;">
+<h2 style="text-align: center; margin-bottom: 10px;">View Details - Property</h2>
+<div class="d-flex  justify-content-around flex-column flex-wrap flex-lg-row ">
+    <div class="card mx-5 my-5" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">${property.address}</h5>
@@ -29,9 +30,11 @@
             <li class="list-group-item">Bathrooms: ${property.bathroomNumber}</li>
             <li class="list-group-item">Price: $${property.price}.00</li>
         </ul>
+        <div class="card-body">
+            <a href="viewDetails?id=${property.id}" class="card-link"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">Request a Tour</button></a>
+        </div>
     </div>
-
-
+</div>
 <jsp:include page="includes/footer.jsp" />
 </body>
 </html>
