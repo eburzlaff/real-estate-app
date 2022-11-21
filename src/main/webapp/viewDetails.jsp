@@ -31,7 +31,7 @@
             <li class="list-group-item">Price: $${property.price}.00</li>
         </ul>
         <div class="card-body">
-            <a href="/requestTour" class="card-link"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">Request a Tour</button></a>
+            <a href="requestTour" class="card-link"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">Request a Tour</button></a>
         </div>
     </div>
 </div>

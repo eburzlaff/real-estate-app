@@ -14,7 +14,7 @@
 
 <body>
     <jsp:include page="includes/navbar.jsp" />
-    <section style="background-color: #dfe6d6">
+    <section>
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
             <div class="container h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
