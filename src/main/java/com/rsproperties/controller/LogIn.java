@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.Properties;
 
 @WebServlet(
+        name = "login",
         urlPatterns = {"/logIn"}
 )
 
