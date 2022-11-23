@@ -12,7 +12,7 @@ import java.io.IOException;
  * Created by Eduardo Burzlaff
  */
 
-@WebServlet(name = "SignUp", urlPatterns = { "/signUp" } )
+@WebServlet(name = "SignUpView", urlPatterns = { "/signUpView" } )
 public class SignUpView extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
