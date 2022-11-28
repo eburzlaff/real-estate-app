@@ -33,9 +33,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="contact">Contact</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="viewMyProperties">My Properties</a>
-                </li>
+
                 <c:if test="${user == null}" >
                     <li class="nav-item">
                         <a class="nav-link" href="logIn">Log In</a>
@@ -45,12 +43,18 @@
                     </li>
                 </c:if>
                 <c:if test="${user != null}" >
-                <li class="nav-item">
-                    <a class="nav-link" href="">Welcome ${user.userName}</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="signOut">Logout</a>
-                </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewProfile">View Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewMyProperties">My Properties</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewProfile">Welcome ${user.userName}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signOut">Logout</a>
+                    </li>
                 </c:if>
             </ul>
         </div>
