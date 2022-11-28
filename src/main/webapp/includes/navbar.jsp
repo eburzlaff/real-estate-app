@@ -49,6 +49,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="">Welcome ${userName}</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="signOut">Logout</a>
+                        </li>
                     </c:otherwise>
                 </c:choose>
             </ul>
