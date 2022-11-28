@@ -36,24 +36,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="viewMyProperties">My Properties</a>
                 </li>
-                <c:choose>
-                    <c:when test="${empty userName}">
-                        <li class="nav-item">
-                            <a class="nav-link" href="logIn">Log In</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signUp">Sign Up</a>
-                        </li>
-                    </c:when>
-                    <c:otherwise>
-                        <li class="nav-item">
-                            <a class="nav-link" href="">Welcome ${userName}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signOut">Logout</a>
-                        </li>
-                    </c:otherwise>
-                </c:choose>
+                <c:if test="${user == null}" >
+                    <li class="nav-item">
+                        <a class="nav-link" href="logIn">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="signUp">Sign Up</a>
+                    </li>
+                </c:if>
+                <c:if test="${user != null}" >
+                <li class="nav-item">
+                    <a class="nav-link" href="">Welcome ${user.userName}, ${user.firstName}, ${user.email}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signOut">Logout</a>
+                </li>
+                </c:if>
             </ul>
         </div>
     </div>

@@ -6,6 +6,10 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.rsproperties.entity.Property;
+import com.rsproperties.entity.User;
+import com.rsproperties.persistence.GenericDao;
+import com.rsproperties.util.DaoFactory;
 import com.rsproperties.util.PropertiesLoader;
 import com.rsproperties.auth.*;
 import org.apache.commons.io.FileUtils;
@@ -19,6 +23,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigInteger;
@@ -37,6 +42,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.RSAPublicKeySpec;
 import java.util.Base64;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Properties;
 import java.util.stream.Collectors;
 
@@ -86,7 +92,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String authCode = req.getParameter("code");
-        String userName = null;
+        User user = null;
 
         if (authCode == null) {
             //TODO forward to an error page or back to the login
@@ -94,8 +100,12 @@ public class Auth extends HttpServlet implements PropertiesLoader {
             HttpRequest authRequest = buildAuthRequest(authCode);
             try {
                 TokenResponse tokenResponse = getToken(authRequest);
-                userName = validate(tokenResponse);
-                req.setAttribute("userName", userName);
+                user = validate(tokenResponse);
+                if (user != null) {
+                    HttpSession session = req.getSession();
+                    session.setAttribute("user", user);
+                }
+//                req.setAttribute("userName", userName);
             } catch (IOException e) {
                 logger.error("Error getting or validating the token: " + e.getMessage(), e);
                 //TODO forward to an error page
@@ -141,7 +151,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
      * @return
      * @throws IOException
      */
-    private String validate(TokenResponse tokenResponse) throws IOException {
+    private User validate(TokenResponse tokenResponse) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         CognitoTokenHeader tokenHeader = mapper.readValue(CognitoJWTParser.getHeader(tokenResponse.getIdToken()).toString(), CognitoTokenHeader.class);
 
@@ -178,7 +188,29 @@ public class Auth extends HttpServlet implements PropertiesLoader {
 
         // Verify the token
         DecodedJWT jwt = verifier.verify(tokenResponse.getIdToken());
+
         String userName = jwt.getClaim("cognito:username").asString();
+        String firstName = jwt.getClaim("given_name").asString();
+        String lastName = jwt.getClaim("family_name").asString();
+        String email = jwt.getClaim("email").asString();
+        GenericDao<User> dao = DaoFactory.createDao(User.class);
+        User user;
+
+        // If there is an user already in the database with the username provided, get it. If not, create a new user
+        // and store it in the database
+        if (dao.findByPropertyEqual("userName", userName).size() == 1) {
+            user = dao.findByPropertyEqual("userName", userName).get(0);
+
+        } else {
+            user = new User();
+            user.setUserName(userName);
+            user.setFirstName(firstName);
+            user.setLastName(lastName);
+            user.setEmail(email);
+
+            dao.insert(user);
+        }
+
         logger.debug("here's the username: " + userName);
 
         logger.debug("here are all the available claims: " + jwt.getClaims());
@@ -186,7 +218,7 @@ public class Auth extends HttpServlet implements PropertiesLoader {
         // TODO decide what you want to do with the info!
         // for now, I'm just returning username for display back to the browser
 
-        return userName;
+        return user;
     }
 
     /** Create the auth url and use it to build the request.
