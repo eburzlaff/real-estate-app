@@ -14,6 +14,7 @@
 
 <body>
 <jsp:include page="includes/navbar.jsp" />
+<h2 style="text-align: center; margin-bottom: 10px;">Edit Your Profile</h2>
 <section>
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
         <div class="container h-100">
@@ -23,7 +24,7 @@
                         <div class="card-body">
                             <h2 class="text-uppercase text-center mb-5">Edit Profile</h2>
 
-                            <form>
+                            <form action="editProfile" method="post">
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">First Name</label>
@@ -44,7 +45,7 @@
                                 </div>
 
                                 <div class="d-flex justify-content-center">
-                                    <a href="editProfile"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">Submit Changes To Your Profile</button></a>
+                                    <input class="btn btn-success btn-block btn-lg gradient-custom-4" type="submit" value="Submit Changes To Your Profile"/>
                                 </div>
 
                             </form>
