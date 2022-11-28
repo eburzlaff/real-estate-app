@@ -25,7 +25,7 @@
                         <h4 class="mb-2">Full Name: ${user.firstName} ${user.lastName}</h4><br>
                         <h4 class="mb-2">Your Username: ${user.userName}</h4><br>
                         <h4 class="mb-2">Email: ${user.email}</h4><br>
-                        <a href="editProfile">
+                        <a href="editProfileView">
                             <button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">
                                 Edit Profile
                             </button>
