@@ -5,10 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
+import javax.persistence.criteria.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -119,8 +116,9 @@ public class GenericDao<T> {
         CriteriaQuery<T> query = builder.createQuery(type);
         Root<T> root = query.from(type);
         query.select(root).where(builder.equal(root.get(propertyName),value));
-
-        return session.createQuery(query).getResultList();
+        List<T> list = session.createQuery(query).getResultList();
+        session.close();
+        return list;
     }
 
     /**
@@ -144,6 +142,30 @@ public class GenericDao<T> {
         query.select(root).where(builder.and(predicates.toArray(new Predicate[predicates.size()])));
 
         return session.createQuery(query).getResultList();
+    }
+
+    /**
+     * Get entity by property (like)
+     *
+     * @param propertyName entity property to search by
+     * @param value value of the property to search for
+     * @return list of entities meeting the criteria search
+     */
+    public List<T> getByPropertyLike(String propertyName, String value) {
+        Session session = getSession();
+
+        logger.debug("Searching for entity with {} = {}",  propertyName, value);
+
+        CriteriaBuilder builder = session.getCriteriaBuilder();
+        CriteriaQuery<T> query = builder.createQuery( type );
+        Root<T> root = query.from( type );
+        Expression<String> propertyPath = root.get(propertyName);
+
+        query.where(builder.like(propertyPath, "%" + value + "%"));
+
+        List<T> entities = session.createQuery( query ).getResultList();
+        session.close();
+        return entities;
     }
 
 
