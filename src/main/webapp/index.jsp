@@ -27,6 +27,16 @@
                 <div class="card-body">
                     <a href="viewDetails?id=${property.id}" class="card-link"><button type="button" class="btn btn-success btn-block btn-lg gradient-custom-4">View Details</button></a>
                 </div>
+                <div class="card-body">
+                    <c:if test="${user != null}" >
+                        <c:if test="${user.getProperties().contains(property)}" >
+                            <a href="saveProperty?propertyId=${property.id}&action=unsave" class="card-link"><button type="button" class="btn btn-info btn-block btn-lg gradient-custom-4">Unsave</button></a>
+                        </c:if>
+                        <c:if test="${!user.getProperties().contains(property)}" >
+                            <a href="saveProperty?propertyId=${property.id}&action=save" class="card-link"><button type="button" class="btn btn-info btn-block btn-lg gradient-custom-4">Save</button></a>
+                        </c:if>
+                    </c:if>
+                </div>
             </div>
     </c:forEach>
     </div>
