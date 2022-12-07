@@ -32,13 +32,13 @@ public class EditProfile extends HttpServlet {
         String firstName = request.getParameter("firstName");
         String lastName = request.getParameter("lastName");
         String email = request.getParameter("email");
+
         User user = (User) session.getAttribute("user");
         user.setFirstName(firstName);
         user.setLastName(lastName);
         user.setEmail(email);
 
         dao.saveOrUpdate(user);
-
 
         response.sendRedirect("viewProfile");
     }

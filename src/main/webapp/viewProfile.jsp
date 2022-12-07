@@ -15,7 +15,7 @@
 <body>
 <jsp:include page="includes/navbar.jsp" />
 <h2 style="text-align: center; margin-bottom: 10px;">View Profile</h2>
-<section">
+<section>
     <div class="container py-5">
         <div class="row d-flex justify-content-center align-items-center">
             <div class="col-md-12 col-xl-4">
