@@ -94,7 +94,7 @@ This week, I watched a lot of videos about creating your own API in Java. Though
 Tasks Completed:
  * Focused on the Team project for the Enterprise Java class
 
-Did not accomplish much regarding my project because I had to focus on the team project. I learned a lot of things during this period, especially about git commands that need to be used when working in a team. Also, I learned a lot about creating APIs since our project was a RESTful API with multiple endpoints.
+Did not accomplish much regarding my project because I had to focus on the team project for the Enterprise Java class. I learned a lot of things during this period, especially about git commands that need to be used when working in a team. Also, I learned a lot about creating APIs since our project was a RESTful API with multiple endpoints.
 
 ### Week 13
 
