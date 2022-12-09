@@ -15,9 +15,9 @@
 
 <body>
 <jsp:include page="includes/navbar.jsp" />
-<h2 style="text-align: center; margin-bottom: 40px;">My Saved Properties</h2>
+<h2 style="text-align: center; margin-bottom: 40px;">My Listings</h2>
 <c:if test="${user.getProperties().size() == 0}" >
-    <h3 style="text-align: center;">You have not saved any properties yet!</h3>
+    <h3 style="text-align: center;">You have not listed any properties yet!</h3>
 </c:if>
 <c:if test="${user.getProperties().size() != 0}" >
     <table class="table align-middle mb-0 bg-white">
@@ -44,9 +44,6 @@
                 <td>${property.bathroomNumber}</td>
                 <td>
                     <a href="viewDetails?id=${property.id}"><button type="button" class="btn btn-link btn-sm btn-rounded">View Details</button></a>
-                </td>
-                <td>
-                    <a href="saveProperty?propertyId=${property.id}&action=unsave"><button type="button" class="btn btn-link btn-sm btn-rounded">Unsave</button></a>
                 </td>
             </tr>
         </c:forEach>

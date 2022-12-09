@@ -44,10 +44,16 @@
                 </c:if>
                 <c:if test="${user != null}" >
                     <li class="nav-item">
+                        <a class="nav-link" href="addPropertyView">Add a Property</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="viewProfile">View Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="viewMyProperties">My Properties</a>
+                        <a class="nav-link" href="viewMyListings">My Listings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewMyProperties">My Saved Properties</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="viewProfile">Welcome ${user.userName}</a>
