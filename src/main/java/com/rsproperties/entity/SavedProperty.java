@@ -3,18 +3,19 @@ package com.rsproperties.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.sql.Blob;
 import java.util.Base64;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * Represents a property in the real state application
  *
  * @eburzlaff
  */
-@Entity(name = "Property")
-@Table(name = "property")
-public class Property {
+@Entity(name = "SavedProperty")
+@Table(name = "saved_property")
+public class SavedProperty {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
@@ -39,7 +40,7 @@ public class Property {
     private String availabilityType;
 
     @Column(name = "bedroom_number")
-    private String bedroomNumber;
+        private String bedroomNumber;
 
     @Column(name = "bathroom_number")
     private String bathroomNumber;
@@ -50,13 +51,26 @@ public class Property {
     @Transient
     private String base64Image;
 
-    @ManyToOne
-    private User user;
+    @ManyToMany(fetch = FetchType.EAGER, cascade =
+            {
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST
+            },
+            targetEntity = User.class)
+    @JoinTable(name = "user_savedProperty",
+            joinColumns = {@JoinColumn(name = "user_saved_id") },
+            inverseJoinColumns = {@JoinColumn(name = "property_id") })
+    private Set<User> users = new HashSet<>();
+
+//    @OneToMany(mappedBy = "savedProperty", fetch = FetchType.EAGER)
+//    private Set<UserSavedProperty> users = new HashSet<UserSavedProperty>();
 
     /**
      * Instantiates a new Property.
      */
-    public Property() {
+    public SavedProperty() {
     }
 
     /**
@@ -71,11 +85,10 @@ public class Property {
      * @param bedroomNumber    the bedroom number
      * @param bathroomNumber   the bathroom number
      */
-    public Property(String address, String price, String description, User user, String propertyType, String availabilityType, String bedroomNumber, String bathroomNumber, byte[] image) {
+    public SavedProperty(String address, String price, String description, User user, String propertyType, String availabilityType, String bedroomNumber, String bathroomNumber, byte[] image) {
         this.address = address;
         this.price = price;
         this.description = description;
-        this.user = user;
         this.propertyType = propertyType;
         this.availabilityType = availabilityType;
         this.bedroomNumber = bedroomNumber;
@@ -153,6 +166,24 @@ public class Property {
     public void setDescription(String description) {
         this.description = description;
     }
+
+//    /**
+//     * Gets user id.
+//     *
+//     * @return the user id
+//     */
+//    public int getUserId() {
+//        return userId;
+//    }
+//
+//    /**
+//     * Sets user id.
+//     *
+//     * @param userId the user id
+//     */
+//    public void setUserId(int userId) {
+//        this.userId = userId;
+//    }
 
     /**
      * Gets property type.
@@ -243,24 +274,39 @@ public class Property {
         this.base64Image = base64Image;
     }
 
-    /**
-     * Gets user.
-     *
-     * @return the user
-     */
-    public User getUser() {
-        return user;
+    public Set<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     /**
-     * Sets user.
+     * Add user.
      *
      * @param user the user
      */
-    public void setUser(User user) {
-        this.user = user;
+    public void addUser(User user) {
+        users.add(user);
     }
 
+    /**
+     * Remove user.
+     *
+     * @param user the user
+     */
+    public void removeUser(User user) {
+        users.remove(user);
+    }
+
+    //    public Set<UserSavedProperty> getUsers() {
+//        return users;
+//    }
+//
+//    public void setUsers(Set<UserSavedProperty> users) {
+//        this.users = users;
+//    }
 
     @Override
     public String toString() {
@@ -281,8 +327,8 @@ public class Property {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Property property = (Property) o;
-        return id == property.id && price == property.price && bedroomNumber == property.bedroomNumber && bathroomNumber == property.bathroomNumber && Objects.equals(address, property.address) && Objects.equals(description, property.description) && Objects.equals(propertyType, property.propertyType) && Objects.equals(availabilityType, property.availabilityType);
+        SavedProperty savedProperty = (SavedProperty) o;
+        return id == savedProperty.id && price == savedProperty.price && bedroomNumber == savedProperty.bedroomNumber && bathroomNumber == savedProperty.bathroomNumber && Objects.equals(address, savedProperty.address) && Objects.equals(description, savedProperty.description) && Objects.equals(propertyType, savedProperty.propertyType) && Objects.equals(availabilityType, savedProperty.availabilityType);
     }
 
     @Override

@@ -18,6 +18,9 @@
 
         <mapping class="com.rsproperties.entity.Property"/>
         <mapping class="com.rsproperties.entity.User"/>
+        <mapping class="com.rsproperties.entity.SavedProperty"/>
+<!--        <mapping class="com.rsproperties.entity.UserSavedProperty"/>-->
+
 
     </session-factory>
 

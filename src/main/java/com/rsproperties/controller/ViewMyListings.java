@@ -27,7 +27,6 @@ public class ViewMyListings extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        GenericDao<Property> dao = DaoFactory.createDao(Property.class);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("myListings" +
                 ".jsp");

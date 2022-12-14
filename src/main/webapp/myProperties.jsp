@@ -16,10 +16,10 @@
 <body>
 <jsp:include page="includes/navbar.jsp" />
 <h2 style="text-align: center; margin-bottom: 40px;">My Saved Properties</h2>
-<c:if test="${user.getProperties().size() == 0}" >
+<c:if test="${user.getSavedProperties().size() == 0}" >
     <h3 style="text-align: center;">You have not saved any properties yet!</h3>
 </c:if>
-<c:if test="${user.getProperties().size() != 0}" >
+<c:if test="${user.getSavedProperties().size() != 0}" >
     <table class="table align-middle mb-0 bg-white">
         <thead class="bg-light">
         <tr>
@@ -33,7 +33,7 @@
         </tr>
         </thead>
         <tbody>
-        <c:forEach var="property" items="${user.properties}">
+        <c:forEach var="property" items="${user.savedProperties}">
             <tr>
                 <td>${property.address}</td>
                 <td>$${property.price}.00</td>
@@ -43,7 +43,7 @@
                 <td>${property.bedroomNumber}</td>
                 <td>${property.bathroomNumber}</td>
                 <td>
-                    <a href="viewDetails?id=${property.id}"><button type="button" class="btn btn-link btn-sm btn-rounded">View Details</button></a>
+                    <a href="viewDetailsSaved?id=${property.id}"><button type="button" class="btn btn-link btn-sm btn-rounded">View Details</button></a>
                 </td>
                 <td>
                     <a href="saveProperty?propertyId=${property.id}&action=unsave"><button type="button" class="btn btn-link btn-sm btn-rounded">Unsave</button></a>

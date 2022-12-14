@@ -1,5 +1,7 @@
 # Eduardo Burzlaff Individual Project
 
+# [Presentation Link](https://www.youtube.com/watch?v=eT4bvYaDSXw)
+
 ### Problem Statement
 
 A lot of people try to look for a house and cannot find many options online. As a solution to that problem, The RS Property Website allows potential buyers and sellers to have a platform where they can look for various properties or add properties to move and instigate the real state industry ecosystem of transactions. 
@@ -45,4 +47,6 @@ A lot of people try to look for a house and cannot find many options online. As 
 ### Self Evaluations
 
 * [Mid-Term Self Evaluation](DesignDocuments/SelfEvaluations/midTermSelfEvaluation.md)
+* [Second Self Evaluation](DesignDocuments/SelfEvaluations/SecondSelfEvaluation.md)
+* [Final Self Evaluation](DesignDocuments/SelfEvaluations/FinalSelfEvaluation.md)
 

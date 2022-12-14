@@ -3,10 +3,8 @@ package com.rsproperties.entity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
-import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,6 +36,22 @@ public class User {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade =
+            {
+                    CascadeType.DETACH,
+                    CascadeType.MERGE,
+                    CascadeType.REFRESH,
+                    CascadeType.PERSIST
+            },
+            targetEntity = SavedProperty.class)
+    @JoinTable(name = "user_savedProperty",
+            joinColumns = {@JoinColumn(name = "user_saved_id") },
+            inverseJoinColumns = {@JoinColumn(name = "property_id") })
+    private Set<SavedProperty> savedProperties = new HashSet<>();
+
+//    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+//    private Set<UserSavedProperty> savedProperties = new HashSet<UserSavedProperty>();
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Property> properties = new HashSet<>();
 
@@ -63,6 +77,12 @@ public class User {
         this.password = password;
         this.email = email;
     }
+
+
+
+//    public User(Set<UserSavedProperty> savedProperties) {
+//        this.savedProperties = savedProperties;
+//    }
 
     /**
      * Gets first name.
@@ -191,6 +211,22 @@ public class User {
         this.properties = properties;
     }
 
+    public Set<SavedProperty> getSavedProperties() {
+        return savedProperties;
+    }
+
+    public void setSavedProperties(Set<SavedProperty> savedProperties) {
+        this.savedProperties = savedProperties;
+    }
+
+    //    public Set<UserSavedProperty> getSavedProperties() {
+//        return savedProperties;
+//    }
+//
+//    public void setSavedProperties(Set<UserSavedProperty> savedProperties) {
+//        this.savedProperties = savedProperties;
+//    }
+
     /**
      * Add property.
      *
@@ -210,6 +246,41 @@ public class User {
         properties.remove(property);
         property.setUser(null);
     }
+
+//    /**
+//     * Add saved property.
+//     *
+//     * @param savedProperty the property
+//     */
+//    public void addSavedProperty(SavedProperty savedProperty) {
+//        UserSavedProperty userSavedProperty = new UserSavedProperty(this, savedProperty);
+//        savedProperties.add(userSavedProperty);
+//        savedProperty.getUsers().add(userSavedProperty);
+//    }
+//
+//    /**
+//     * Remove property.
+//     *
+//     * @param savedProperty the property
+//     */
+//    public void removeSavedProperty(SavedProperty savedProperty) {
+//        for (Iterator<UserSavedProperty> iterator = savedProperties.iterator();
+//            iterator.hasNext(); ) {
+//            UserSavedProperty userSavedProperty = iterator.next();
+//
+//            if (userSavedProperty.getSavedProperty().equals(this) &&
+//                    userSavedProperty.getUser().equals(savedProperty)) {
+//                iterator.remove();
+//                userSavedProperty.getSavedProperty().getUsers().remove(userSavedProperty);
+//                userSavedProperty.setSavedProperty(null);
+//                userSavedProperty.setUser(null);
+//
+//            }
+//
+//        }
+//    }
+
+
 
     @Override
     public String toString() {

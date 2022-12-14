@@ -24,7 +24,7 @@
             <div class="card-body">
               <h2 class="text-uppercase text-center mb-5">Create Listing</h2>
 
-              <form action="addPropertyAction" method="post">
+              <form action="addPropertyAction" method="get">
 
                 <div class="form-outline mb-4">
                   <label class="form-label" for="form3Example1cg">Address</label>
@@ -61,13 +61,13 @@
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg">Bedroom Number</label>
+                  <label class="form-label" for="form3Example7cg">Bedroom Number</label>
                   <input type="text" name="bedroomNumber" id="form3Example7cg" class="form-control form-control-lg" required/>
 
                 </div>
 
                 <div class="form-outline mb-4">
-                  <label class="form-label" for="form3Example4cg">Bathroom Number</label>
+                  <label class="form-label" for="form3Example8cg">Bathroom Number</label>
                   <input type="text" name="bathroomNumber" id="form3Example8cg" class="form-control form-control-lg" required/>
 
                 </div>

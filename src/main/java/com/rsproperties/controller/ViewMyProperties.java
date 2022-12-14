@@ -27,10 +27,6 @@ public class ViewMyProperties extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
-        GenericDao<Property> dao = DaoFactory.createDao(Property.class);
-        List<Property> myProperties = dao.getAll();
-        req.setAttribute("myProperties", myProperties);
-        logger.debug("Sending back MY property/ies..." + myProperties);
 
         RequestDispatcher dispatcher = req.getRequestDispatcher("myProperties" +
                 ".jsp");

@@ -45,6 +45,9 @@
                 <td>
                     <a href="viewDetails?id=${property.id}"><button type="button" class="btn btn-link btn-sm btn-rounded">View Details</button></a>
                 </td>
+                <td>
+                    <a href="removePropertyView?id=${property.id}"><button type="button" class="btn btn-link btn-sm btn-rounded">Remove</button></a>
+                </td>
             </tr>
         </c:forEach>
         </tbody>

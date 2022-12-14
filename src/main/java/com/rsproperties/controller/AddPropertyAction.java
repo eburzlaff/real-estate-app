@@ -4,15 +4,19 @@ import com.rsproperties.entity.Property;
 import com.rsproperties.entity.User;
 import com.rsproperties.persistence.GenericDao;
 import com.rsproperties.util.DaoFactory;
+import org.hibernate.engine.jdbc.BlobProxy;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Properties;
 
@@ -25,7 +29,7 @@ import java.util.Properties;
 public class AddPropertyAction extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession(true);
 
@@ -39,23 +43,33 @@ public class AddPropertyAction extends HttpServlet {
         String availabilityType = request.getParameter("availabilityType");
         String bedroomNumber = request.getParameter("bedroomNumber");
         String bathroomNumber = request.getParameter("bathroomNumber");
-        String propertyImage = request.getParameter("image");
 
+        //save image into database
+        File file = new File("images/no-image-icon-23494.jpg");
+        byte[] bFile = new byte[(int) file.length()];
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(file);
+            //convert file into array of bytes
+            fileInputStream.read(bFile);
+            fileInputStream.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         User user = (User) session.getAttribute("user");
         Property property = new Property();
         property.setAddress(address);
         property.setUser(user);
-        property.setPrice(Integer.parseInt(price));
+        property.setPrice(price);
         property.setDescription(description);
         property.setPropertyType(propertyType);
         property.setAvailabilityType(availabilityType);
-        property.setBedroomNumber(Integer.parseInt(bedroomNumber));
-        property.setBathroomNumber(Integer.parseInt(bathroomNumber));
+        property.setBedroomNumber(bedroomNumber);
+        property.setBathroomNumber(bathroomNumber);
+        property.setImage(bFile);
         user.addProperty(property);
-
         propertyDao.insert(property);
-        userDao.saveOrUpdate(user);
 
         response.sendRedirect("viewMyListings");
     }
