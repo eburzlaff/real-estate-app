@@ -1,13 +1,9 @@
-# Eduardo Burzlaff Individual Project
-
-# Real Estate website - Java Maven Project from Enterprise Java class - Madison College
+# Real Estate App - Java Maven Project from Enterprise Java class - Madison College
 
 # [Youtube Demo Presentation Link](https://www.youtube.com/watch?v=eT4bvYaDSXw)
 
-### Problem Statement
-
-A lot of people try to look for a house and cannot find many options online. As a solution to that problem, The RS Property Website allows potential buyers and sellers to have a platform where they can look for various properties or add properties to move and instigate the real state industry ecosystem of transactions. 
-
+### Description
+The Real Estate App allows potential buyers and sellers to have a platform where they can look for various properties or add properties to move and instigate the real state industry ecosystem of transactions. 
 
 ### Project Technologies/Techniques
 
@@ -19,16 +15,17 @@ A lot of people try to look for a house and cannot find many options online. As 
     * Hibernate 5
 * Dependency Management
     * Maven
-* CSS
-    * Bootstrap
+* Styling
+    * CSS Bootstrap
 * Logging
     * Log4J2
 * Hosting
-    * AWS
-* Unit Testing
+    * AWS Elastic Beanstalk
+* Authentication
+    * AWS Cognito
+* Unit Testing Framework
     * JUnit
 * IDE: IntelliJ IDEA
-
 
 ### Design
 
@@ -38,13 +35,13 @@ A lot of people try to look for a house and cannot find many options online. As 
 * [Application Flow](DesignDocuments/ApplicationFlow/applicationFlow.md)
 * [Database Design](DesignDocuments/DatabaseDiagram/databaseDiagram.png)
 
-### [Project Plan](ProjectPlan.md)
+### Project Plan
+* [Project Plan](ProjectPlan.md)
 
-### Examples of documentation of progress, reflections, and time spent on this class
+### Documentation of progress, reflections, and time spent on this class
 
 #### [Weekly Reflection Journal](WeeklyReflectionJournal.md)
 #### [Time Log](TimeLog.md)
-
 
 ### Self Evaluations
 
