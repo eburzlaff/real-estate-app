@@ -2,6 +2,8 @@
 
 # [Youtube Demo Presentation Link](https://www.youtube.com/watch?v=eT4bvYaDSXw)
 
+<img src="DesignDocuments/ScreenDesign/home.png" alt="home" style="width:2000px;"/>
+
 ### Description
 The Real Estate App allows potential buyers and sellers to have a platform where they can look for various properties or add properties to move and instigate the real state industry ecosystem of transactions. 
 
