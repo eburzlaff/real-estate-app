@@ -1,0 +1,12 @@
+id,first_name,last_name,user_name,password,email
+1,Joe,Coyne,jcoyne,supersecret1,test1
+2,Fred,Hensen,fhensen,supersecret2,test2
+3,Barney,Curry,bcurry,supersecret3,test3
+4,Karen,Mack,kmack,supersecret4,test4
+5,Dianne,Klein,dklein,supersecret5,test5
+6,Dawn,Tillman,dtillman,supersecret6,test6
+7,Eduardo,Burzlaff,eburzlaff,NULL,eburzlaff@madisoncollege.edu
+8,paula,waite,pawaite,NULL,pawaite@madisoncollege.edu
+9,navy,joness,jonesna,NULL,njones11@madisoncollege.edu
+10,User,Test,usertest,NULL,du.di.99@hotmail.com
+11,John,Barcellos,test,NULL,ebburzlaff@madisoncollege.edu
